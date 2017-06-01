@@ -21,3 +21,33 @@ hallo2
 hallo3
 ...
 ```
+
+### Rename Strings inside files inside a directory
+Files:
+```
+abc.txt
+   >blah
+   Hallo Welt
+   ...
+abc1.txt
+   >blahblah
+   Hallo 123 Welt
+   ...
+...
+```
+Command:
+```
+for file in *.txt; do (sed -i.bak 's/>.*/REPLACESTRING/g' $file); done
+```
+Output Files:
+```
+abc.txt
+   REPLACESTRING
+   Hallo Welt
+   ...
+abc1.txt
+   REPLACESTRING
+   Hallo 123 Welt
+   ...
+...
+```
