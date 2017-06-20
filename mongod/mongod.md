@@ -35,6 +35,33 @@ db.createUser( { user: "<username>",
 
 ### create user
 
+select database the user will be authorized for
+```
+use test
+```
+create a user with readWrite role for the database test
+```
+db.createUser({user: "testUser", pwd: "123456", roles: [{role: "readWrite", db: "test"}]})
+```
+check if user was successfully created
+```
+db.getUser("testUser")
+{
+	"_id" : "test.testUser",
+	"user" : "testUser",
+	"db" : "test",
+	"roles" : [
+		{
+			"role" : "readWrite",
+			"db" : "test"
+		}
+	]
+}
+
+
+```
+
+
 ### update user
 
 ### delete user
