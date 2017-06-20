@@ -1,6 +1,16 @@
 ## [awk](https://de.wikipedia.org/wiki/Awk) Cheat Sheet
 
-### Variables in awk
+
+- [usefull awk commands](#usefull-awk-commands)
+  * [variables in awk](#variables-in-awk)
+  * [get pid from a process](#get-pid-from-a-process)
+  * [top 10 commands often used in history](#top-10-commands-often-used-in-history)
+
+
+
+## usefull awk commands
+
+### variables in awk
 ```
 echo Hallo Welt  | awk '{printf "%s, %s!\n",$1,$2}'
 ```
@@ -8,7 +18,7 @@ Output:
 ```
 Hallo, Welt!
 ```
-### Get PID from a Process
+### get pid from a process
 
 ```
 ps -ef | grep redis
@@ -40,4 +50,26 @@ Output:
 ```
 5394
 ```
+### top 10 commands often used in history
 
+command:
+```
+history | awk ‘{a[$2]++}END{for(i in a){print a[i] ” ” i}}’ | sort -rn | head
+```
+sort-information:
+
+**-r, --reverse**
+
+    reverse the result of comparisons
+**-n, --numeric-sort**
+
+    compare according to string numerical value
+
+output:
+```
+191 cd
+162 joe
+161 ls
+136 hg
+...
+```
