@@ -59,14 +59,65 @@ db.getUser("testUser")
 		}
 	]
 }
-
-
 ```
-
 
 ### update user
 
+select database the user is authorized for
+```
+use test
+```
+get user information
+```
+db.getUser("testUser")
+{
+	"_id" : "test.testUser",
+	"user" : "testUser",
+	"db" : "test",
+	"roles" : [
+		{
+			"role" : "readWrite",
+			"db" : "test"
+		}
+	]
+}
+```
+update customData for user
+```
+db.updateUser("testUser", { "customData": {city: "Münster", zip: "48165"}})
+```
+get user information after update
+```
+db.getUser("testUser")
+{
+	"_id" : "test.testUser",
+	"user" : "testUser",
+	"db" : "test",
+	"roles" : [
+		{
+			"role" : "readWrite",
+			"db" : "test"
+		}
+	],
+	"customData" : {
+		"city" : "Münster",
+		"zip" : "48165"
+	}
+}
+```
+update user role
+```
+db.updateUser("testUser", { "roles": [{ "role": "read", "db": "test"}] })
+```
 ### delete user
+```
+db.dropUser("testUser")
+```
+check if user was successfully deleted
+```
+db.getUser("testUser")
+null
+```
 
 ## user role administration
 
