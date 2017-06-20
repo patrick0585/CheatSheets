@@ -167,6 +167,46 @@ db.getRole("testRole", { showPrivileges: true } )
 
 ### update user role
 
+add action **insert** to role **testRole**
+```
+db.updateRole("testRole", {privileges: [ { resource: { db: "test", collection: "jobs"}, actions: [ "find", "insert"]}], roles: []})
+```
+check if role was successfully updated
+```
+db.getRole("testRole", { showPrivileges: true } )
+{
+	"role" : "testRole",
+	"db" : "test",
+	"isBuiltin" : false,
+	"roles" : [ ],
+	"inheritedRoles" : [ ],
+	"privileges" : [
+		{
+			"resource" : {
+				"db" : "test",
+				"collection" : "jobs"
+			},
+			"actions" : [
+				"find",
+				"insert"
+			]
+		}
+	],
+	"inheritedPrivileges" : [
+		{
+			"resource" : {
+				"db" : "test",
+				"collection" : "jobs"
+			},
+			"actions" : [
+				"find",
+				"insert"
+			]
+		}
+	]
+}
+```
+
 ### delete user role
 
 ## configuration options
