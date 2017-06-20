@@ -208,7 +208,15 @@ db.getRole("testRole", { showPrivileges: true } )
 ```
 
 ### delete user role
-
+```
+db.dropRole("testRole")
+true
+```
+check if role was successfully deleted
+```
+db.getRole("testRole", { showPrivileges: true } )
+null
+```
 ## configuration options
 
 ### set authorization inside mongod.conf
