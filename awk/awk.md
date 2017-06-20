@@ -5,6 +5,8 @@
   * [variables in awk](#variables-in-awk)
   * [get pid from a process](#get-pid-from-a-process)
   * [top 10 commands often used in history](#top-10-commands-often-used-in-history)
+  * [get all duplicates from a file](#get-all-duplicates-from-a-file)
+  * [remove all duplicates from a file](#remove-all-duplicates-from-a-file)
 
 
 
@@ -72,4 +74,49 @@ output:
 161 ls
 136 hg
 ...
+```
+
+### get all duplicates from a file
+file input (test.txt):
+```
+Hallo
+Welt
+Hallo
+Welt
+12
+123
+32
+```
+command:
+```
+awk 'x[$0]++' test.txt
+```
+output:
+```
+Hallo
+Welt
+```
+
+### remove all duplicates from a file
+file input (test.txt):
+```
+Hallo
+Welt
+Hallo
+Welt
+12
+123
+32
+```
+command:
+```
+awk '!x[$0]++' test.txt
+```
+output:
+```
+Hallo
+Welt
+12
+123
+32
 ```
