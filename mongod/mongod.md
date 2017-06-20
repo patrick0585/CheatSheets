@@ -1,6 +1,21 @@
-## [mongod](https://de.wikipedia.org/wiki/MongoDB) Cheat Sheet
+# [mongod](https://de.wikipedia.org/wiki/MongoDB) Cheat Sheet
 
-### Create Root User
+- [user administration](#user-administration)
+  * [create root user](#create-root-user)
+  * [create user](#create-user)
+  * [update user](#update-user)
+  * [delete user](#delete-user)
+- [user role administration](#user-role-administration)
+  * [create user role](#create-user-role)
+  * [update user role](#update-user-role)
+  * [delete user role](#delete-user-role)
+- [configuration options](#configuration-options)
+  * [set authorization inside mongod.conf](#set-authorization-inside-mongodconf)
+
+
+## user administration
+
+### create root user
 
 use admin database
 ```
@@ -17,7 +32,24 @@ db.createUser( { user: "<username>",
 ] } )
 
 ```
-### Set authorization inside mongod.conf
+
+### create user
+
+### update user
+
+### delete user
+
+## user role administration
+
+### create user role
+
+### update user role
+
+### delete user role
+
+## configuration options
+
+### set authorization inside mongod.conf
 add the following entry inside mongod.conf
 ```
 security:
