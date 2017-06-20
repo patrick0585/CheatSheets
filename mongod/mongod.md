@@ -39,7 +39,9 @@ select database the user will be authorized for
 ```
 use test
 ```
-create a user with readWrite role for the database test
+create a user with **readWrite** role for the database **test**
+
+mongodb built-in-roles can be found [here](https://docs.mongodb.com/manual/reference/built-in-roles/#database-user-roles)
 ```
 db.createUser({user: "testUser", pwd: "123456", roles: [{role: "readWrite", db: "test"}]})
 ```
