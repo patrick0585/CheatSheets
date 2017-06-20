@@ -123,6 +123,48 @@ null
 
 ### create user role
 
+create a role which only allows the action **find** inside the collection **jobs** from database **test**
+
+All privilege actions can be found [here](https://docs.mongodb.com/v3.0/reference/privilege-actions/#security-user-actions)
+
+```
+db.createRole({role: "testRole", privileges: [ { resource: { db: "test", collection: "jobs"}, actions: [ "find"]}], roles: []})
+```
+check if role is successfully created
+```
+db.getRole("testRole", { showPrivileges: true } )
+{
+	"role" : "testRole",
+	"db" : "test",
+	"isBuiltin" : false,
+	"roles" : [ ],
+	"inheritedRoles" : [ ],
+	"privileges" : [
+		{
+			"resource" : {
+				"db" : "test",
+				"collection" : "jobs"
+			},
+			"actions" : [
+				"find"
+			]
+		}
+	],
+	"inheritedPrivileges" : [
+		{
+			"resource" : {
+				"db" : "test",
+				"collection" : "jobs"
+			},
+			"actions" : [
+				"find"
+			]
+		}
+	]
+}
+
+```
+
 ### update user role
 
 ### delete user role
