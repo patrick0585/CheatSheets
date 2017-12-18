@@ -70,9 +70,9 @@ sh.addShard("localhost:27019")
 
 sh.enableSharding("testdb")	// Name der Datenbank
 
-sh.shardCollection("testdb.cities", {"id": 1})	// optional (Definition einer Regel zum Verteilen der Datensätze)
+sh.shardCollection("testdb.cities", {"id": 1})
 	
-sh.status()	// Informationen
+sh.status()
 ```
 
 ### 4.) Test Sharding with test-data
