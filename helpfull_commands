@@ -1,0 +1,3 @@
+Replace files in an directory:
+
+find * | perl -pe 'print $_; s/(\d+).(log|act)/$1.HA.$2/' | xargs -d "\n" -n2 mv
